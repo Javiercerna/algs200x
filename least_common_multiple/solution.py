@@ -1,7 +1,7 @@
 def LCM(a, b):
     lcm = 1
     divisor = 2
-    while a != 1 or b != 1:
+    while a != 1 and b != 1:
         if a % divisor != 0 and b % divisor != 0:
             divisor += 1
             continue
@@ -12,7 +12,8 @@ def LCM(a, b):
             a /= divisor
         if b % divisor == 0:
             b /= divisor
-    return lcm
+
+    return lcm*a*b
 
 if __name__ == '__main__':
     a, b = [int(num) for num in raw_input().split()]

@@ -21,16 +21,16 @@ class LCMTest(unittest.TestCase):
         max_input = int(2e9)
         start_time = time.time()
 ##        LCMNaive(max_input, max_input) # Fails test
-        LCMSolution(max_input, max_input)
+        LCMSolution(max_input, max_input-1)
         elapsed_seconds = time.time() - start_time
         print '\nElapsed seconds for max inputs (%s, %s): %.3f' % \
-              (max_input, max_input, elapsed_seconds)
+              (max_input, max_input-1, elapsed_seconds)
         self.assertTrue(elapsed_seconds < TIME_LIMIT_SECONDS)
 
     def test_stress(self):
         for dummy_ind in range(100):
-            a = random.randint(1, 2e4)
-            b = random.randint(1, 2e4)
+            a = random.randint(1, 2e3)
+            b = random.randint(1, 2e3)
             print a, b
             self.assertEqual(LCMNaive(a, b), LCMSolution(a, b))
         
